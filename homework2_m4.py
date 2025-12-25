@@ -5,8 +5,8 @@ def get_cats_info(path):
     cat_list = [] # epty list
     with open(path, "r", encoding='utf-8') as fh:
         for line in fh:
-            id, name, age = line.strip().split(",") # split the line into id, name and age
-            cat_dict = {"id": id, "name": name, "age": age} # create dictionary
+            cat_id, name, age = line.strip().split(",") # split the line into id, name and age
+            cat_dict = {"id": cat_id, "name": name, "age": age} # create dictionary
             cat_list.append(cat_dict) # add dictionary to list
     return cat_list
 try:
