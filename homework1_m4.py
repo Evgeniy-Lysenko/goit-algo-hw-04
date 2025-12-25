@@ -9,9 +9,20 @@ def total_salary(path): # calculation of the total amount of employees' salaries
             name, salary = line.split(",") # split the line into name and salary
             total += int(salary)
             count += 1
-        average = total / count
+            average = int(total / count)
         return total, average
 
-
-total, average = total_salary(path) # call the function 
-print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}") # print the total amount of employees' salaries and its average value
+try:
+    total, average = total_salary(path)
+except FileNotFoundError:
+    print(f"File not found: {path}")
+except PermissionError:
+    print(f"Permission denied when reading file: {path}")
+except IsADirectoryError:
+    print(f"Path is a directory, expected a file: {path}")
+except UnicodeDecodeError:
+    print(f"Cannot decode file (unexpected encoding): {path}")
+except OSError as e:
+    print(f"Error reading file {path}: {e}")
+else:
+    print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")

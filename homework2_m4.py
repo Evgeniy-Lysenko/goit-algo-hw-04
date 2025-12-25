@@ -9,6 +9,8 @@ def get_cats_info(path):
             cat_dict = {"id": id, "name": name, "age": age}
             cat_list.append(cat_dict)
     return cat_list
-
-cats_info = get_cats_info(path)
-print(cats_info)
+try:
+    cats_info = get_cats_info(path)
+    print(cats_info)
+except FileNotFoundError:
+    print("File not found")
