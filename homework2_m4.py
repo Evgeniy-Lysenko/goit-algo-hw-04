@@ -11,6 +11,17 @@ def get_cats_info(path):
     return cat_list
 try:
     cats_info = get_cats_info(path)
-    print(cats_info)
+
 except FileNotFoundError:
-    print("File not found")
+    print(f"File not found: {path}")
+except PermissionError:
+    print(f"Permission denied when reading file: {path}")
+except IsADirectoryError:
+    print(f"Path is a directory, expected a file: {path}")
+except UnicodeDecodeError:
+    print(f"Cannot decode file (unexpected encoding): {path}")
+except OSError as e:
+    print(f"Error reading file {path}: {e}")
+else:
+    print(cats_info)
+    
