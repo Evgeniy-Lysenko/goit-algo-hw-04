@@ -6,7 +6,7 @@ def total_salary(path): # calculation of the total amount of employees' salaries
         total = 0
         count = 0
         for line in fh: # read each line from the file
-            name, salary = line.split(",") # split the line into name and salary
+            name, salary = line.strip().split(",") # split the line into name and salary
             total += int(salary)
             count += 1
         if count == 0:
