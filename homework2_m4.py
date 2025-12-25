@@ -12,14 +12,10 @@ def get_cats_info(path):
 try:
     cats_info = get_cats_info(path)
 
-except FileNotFoundError: # if the file is not found
-    print(f"File not found: {path}")
-except PermissionError: # if the file cannot be read
-    print(f"Permission denied when reading file: {path}")
-except IsADirectoryError: # if the path is a directory
-    print(f"Path is a directory, expected a file: {path}")
 except UnicodeDecodeError: # if the file cannot be decoded
-    print(f"Cannot decode file (unexpected encoding): {path}")
+    print(f"Файл не в форматі UTF-8: {path}")
+except ValueError: # if the salary is not a number
+    print(f"Файл не відповідає шаблону \"ID, ім'я, вік\": {path}")
 except OSError as e: # if there is an error reading the file
     print(f"Error reading file {path}: {e}")
 else:
