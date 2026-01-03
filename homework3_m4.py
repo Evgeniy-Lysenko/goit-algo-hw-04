@@ -20,16 +20,17 @@ def path_recursion(path: Path, level=0): # recursive directory traversal
 #         else:
 #             print(f"{Fore.LIGHTGREEN_EX}{p.name}{Style.RESET_ALL}")
 
+if len(sys.argv) < 2: # if no path is provided
+    print("Вкажіть шлях до директорії")
+    sys.exit(1)
 
 path = Path(sys.argv[1])
+
+
 try:    
     # existence check
-    if path.exists():
-       print(f"{path} існує")
-
-    # derictory check
-    if path.is_dir():
-       print(f"{path} є директорією")
+    if path.exists() and path.is_dir():
+        pass
     # main()
     print(f"Вміст директорії {Fore.LIGHTBLUE_EX}{path}/{Style.RESET_ALL}")    
     path_recursion(path)
