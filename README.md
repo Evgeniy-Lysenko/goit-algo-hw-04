@@ -80,7 +80,7 @@ source .venv/bin/activate      # Linux / macOS
 pip install -r req_homw3_m4.txt
 
 ### Запуск
-python main.py <шлях_до_директорії>
+python homework3_v2_m4.py <шлях_до_директорії>
 
 ### Особливості реалізації
 піддиректорії відображаються синім кольором;
