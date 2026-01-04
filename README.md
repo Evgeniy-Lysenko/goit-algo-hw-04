@@ -72,7 +72,9 @@ id,ім'я,вік
 ### Встановлення
 
 python -m venv .venv
+
 source .venv/bin/activate      # Linux / macOS
+
 .venv\Scripts\activate       # Windows
 
 pip install -r req_homw3_m4.txt
