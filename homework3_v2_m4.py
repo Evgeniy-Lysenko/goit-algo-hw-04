@@ -2,11 +2,11 @@
 import sys
 from pathlib import Path
 from colorama import init,  Fore, Style
-init()
+init(strip=False, convert=False)
 
-def path_recursion(path: Path, level=0): # recursive directory traversal
+def path_recursion(path: Path, level=1): # recursive directory traversal
     indent = " " * (level * 4)
-    for p in path.iterdir():
+    for p in  sorted(path.iterdir()):
         if p.is_dir():
             print(f"{indent}{Fore.LIGHTBLUE_EX}{p.name}/{Style.RESET_ALL}") # print directory name in blue
             path_recursion(p, level + 1)
@@ -27,7 +27,7 @@ def main(): # main function to handle input and exceptions
     if not path.is_dir(): # check if path is a directory
         print("Шлях не є директорією")
         return
-
+    print(f"{Fore.RED}{path}/")
     path_recursion(path)
 
 if __name__ == "__main__":
