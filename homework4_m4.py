@@ -23,6 +23,8 @@ def contact_phone(args, contacts):
     return contacts.get(name, "Contact not found.")
 
 def all_contacts(contacts):
+    if not contacts:
+       return "No contacts saved."
     return "\n".join(f"{name}: {phone}" for name, phone in sorted(contacts.items()))
     
 def main():
