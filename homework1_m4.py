@@ -7,11 +7,11 @@ def total_salary(path): # calculation of the total amount of employees' salaries
         count = 0
         for line in fh: # read each line from the file
             name, salary = line.strip().split(",") # split the line into name and salary
-            total += int(salary)
+            total += float(salary) # add the salary to the total
             count += 1
         if count == 0:
            return 0, 0
-        average = total // count
+        average = total // count 
         return total, average # return total and average salary
 
 try: # try to calculate the total amount of employees' salaries and its average value
